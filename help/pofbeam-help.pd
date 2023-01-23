@@ -1,4 +1,4 @@
-#N canvas 837 33 687 424 10;
+#N canvas 837 33 687 506 10;
 #X declare -path ../bin -lib pof;
 #X obj 27 45 pofhead;
 #X msg 275 230 clear;
@@ -17,10 +17,10 @@
 #X floatatom 398 206 5 0 0 0 - - - 0;
 #X obj 54 250 pofrect 2000 2000;
 #X obj 27 203 t a a;
-#X obj 27 332 pofblend SRC_ALPHA ONE;
+#X obj 27 312 pofblend SRC_ALPHA ONE;
 #X obj 556 731 tgl 15 0 empty empty quality(default:1) 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 27 176 poffbo 2048 2048;
-#X obj 27 358 pofbeam 1 9;
+#X obj 27 398 pofbeam 1 9;
 #N canvas 409 30 475 425 brush_texture 0;
 #X msg 89 238 0 0 \, 1 0.05 \, 2 0.1 \, 3 0.4 \, 4 1 \, 5 0.4 \, 6 0.1 \, 7 0.05 \, 8 0;
 #X msg 89 289 setcolor \$1 \$2 \$3 \$4 \$5 \$6;
@@ -142,6 +142,8 @@
 #X obj 267 326 loadbang;
 #X msg 177 230 add \$1 \$2 1;
 #X text 181 204 add: x y width;
+#X text 13 466 (c) metalu.net/NinjaTune 2023 BSD Simplified License., f 55;
+#X text 12 448 The main repository of this project is https://github.com/MetaluNet/pofBeam, f 77;
 #X connect 0 0 24 0;
 #X connect 1 0 2 0;
 #X connect 2 0 20 0;
