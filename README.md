@@ -1,8 +1,10 @@
 # pofBeam
 
 
-pofBeam is a Pof (see [https://github.com/Ant1r/ofxPof](https://github.com/Ant1r/ofxPof)) addon for drawing nice oscilloscope beam.
+pofBeam is a Pof (see [https://github.com/Ant1r/ofxPof](https://github.com/Ant1r/ofxPof)) addon for drawing textured thick paths, for example to draw an oscilloscope-like beam.
 
+The algorithm is simple enough to allow adding points at audio rate, which partly explains why it produces some wrong artifacts...
+Which doesn't mean that it could not be improved!
 
 ![pofBeam screenshot](pofBeam_screenshot.png)
 
