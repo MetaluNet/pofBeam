@@ -23,7 +23,7 @@ IS64BIT=$(shell if [ -n "`uname -a | grep x86_64`" ] ; then echo yes ; else echo
 
 ISARM=$(shell if [ -n "`uname -m | grep arm`" ] ; then echo yes ; else echo no ; fi)
 
-PROJECT_CFLAGS = -I$(POFSRC) -Wno-class-memaccess
+PROJECT_CFLAGS = -I$(POFSRC)
 
 ifeq ($(PLATFORM_OS),Linux)
 	ifeq ($(ISARM),yes)
@@ -34,14 +34,14 @@ ifeq ($(PLATFORM_OS),Linux)
 		SUFFIX = l_i386
 	endif
 	APPNAME=$(EXTNAME).$(SUFFIX)
-	PROJECT_CFLAGS += -fPIC
+	PROJECT_CFLAGS += -fPIC -Wno-class-memaccess
 	PROJECT_LDFLAGS = -rdynamic -shared -Wl,-rpath=./libs
 	#PROJECT_LDFLAGS = -rdynamic -shared -Wl,-rpath="./libs:'$ORIGIN/libs'"
 	PLATFORM_RUN_COMMAND = pd -path bin/ -lib pof -open help/$(EXTNAME)-help.pd
 else ifeq ($(PLATFORM_OS),Darwin)
-	APPNAME=$(EXTNAME).pd_darwin
+	APPNAME=${EXTNAME}.pd_darwin
 	PROJECT_LDFLAGS = -undefined dynamic_lookup -rdynamic -shared
-	PLATFORM_RUN_COMMAND = /Applications/Pd-0.50-2.app/Contents/Resources/bin/pd -path bin/$(EXTNAME).pd_darwin.app/Contents/MacOS/ -open help/$(EXTNAME)-help.pd
+	PLATFORM_RUN_COMMAND=/Applications/Pd-0.53-0.app/Contents/Resources/bin/pd -lib pof -path bin/${EXTNAME}.pd_darwin.app/Contents/MacOS/ -open help/${EXTNAME}-help.pd
 endif
 
 ################################################################################
